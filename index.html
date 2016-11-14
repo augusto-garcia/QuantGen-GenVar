@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quantitative Genetics</title>
+  <meta name="description" content="">
+  <meta name="author" content="Antonio Augusto F Garcia">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/2.3.1/amelia/bootstrap.min.css">
+<link rel="stylesheet" href="./frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="./frameworks/revealjs/css/theme/night.css" id="theme">
+  <link rel="stylesheet" href="./highlighters/highlight.js/css/zenburn.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/slidify-reveal.css">
+
+</head>
+<body>
+  
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h1>Quantitative Genetics</h1>
+  <h2>A Review of Statistics</h2>
+
+<p><small>
+Instructor: <a href="http://about.me/augusto.garcia">A Augusto F Garcia</a>
+/ <a href="http://statgen.esalq.usp.br">Statistical Genetics Lab</a> </small></p>
+
+<p><small>Department of Genetics, Luiz de Queiroz College of Agriculture,
+University of São Paulo (Brazil)</small></p>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <aside class='notes'>
+    <p>Some notes on the first slide</p>
+
+  </aside>
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h1>Content</h1>
+  <h3>Expectation</h3>
+
+<h3>Variance</h3>
+
+<h3>Covariance</h3>
+
+<h3>Regression</h3>
+
+<h3>Correlation</h3>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h3>Probability distribution</h3>
+  <ul>
+<li><p>We will denote \(z\) for a random variable (quantitative trait,
+phenotype)</p></li>
+<li><p>\(p(z)\) (probability density function) </p></li>
+</ul>
+
+<p>\(\int_{-\infty}^{+\infty} p(z) dz = 1\)</p>
+
+<p>\(P(z_1\leq z \leq z_2)=\int_{z_1}^{z_2}p(z) dz\)</p>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h3>Normal distribution</h3>
+  <p>\[f(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{\frac{-(x-\mu)^2}{2\sigma^{2}}}\]</p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h1>Expectation</h1>
+  <ul>
+<li>First moment about the origin, <strong>expected value</strong>, expectation, mean</li>
+</ul>
+
+<p>\[E(z)=\mu=\int_{-\infty}^{+\infty} z \, p(z) \, dz\]</p>
+
+<ul>
+<li><p>Properties</p>
+
+<ul>
+<li>\(E(x+y)=E(x)+E(y)\)</li>
+<li>\(E(cx)=c E(x)\)</li>
+</ul></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-6'>
+  <h1>Variance</h1>
+  <ul>
+<li>Second moment about the mean</li>
+</ul>
+
+<p>\[\sigma^2=\int_{-\infty}^{+\infty} (z-\mu)² \, p(z) \, dz=E[(z-\mu)^2]\]</p>
+
+<p>\[\sigma² = E(z^2)-[E(z)]^2\]</p>
+
+<p>If \(z\) are deviations around the mean (e. g. after scaling)</p>
+
+<p>\(\sigma^2=E(z^2)\)</p>
+
+</section>
+<section class='' data-state='' id='slide-7'>
+  <h2>Joint Distribution</h2>
+  <p>\[P(y_1 \leq y \leq y_2, \, x_1 \leq x \leq x_2) =
+\int_{y_1}^{y_2}\int_{x_1}^{x_2} p(x,y) \, dx\, dy\]</p>
+
+<ul>
+<li><p>Conditional probabilities
+\[P(y_1 \leq y \leq y_2 | x) = \int_{y_1}^{y_2} p(y|x) \, dy\]</p></li>
+<li><p>Remember that
+\[p(x,y)=p(y|x) \, p(x)\]</p></li>
+<li><p>Expectation
+\[E[f(x,y)]=\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}
+f(x,y)\,p(x,y)\,dx \, dy\]</p></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-8'>
+  <h1>Covariance</h1>
+  <p>\[\sigma(x,y)=E[(x-\mu_x)(y-\mu_y)]\]</p>
+
+<p>\[\sigma(x,y)=E(xy)-\mu_x \mu_y=E(xy)-E(x)\,E(y)\]</p>
+
+</section>
+<section class='' data-state='' id='slide-9'>
+  <h3>Covariance</h3>
+  <ul>
+<li>Measure of <strong>linear association</strong> between \(x\) and \(y\)</li>
+</ul>
+
+<p><img src="./images/covariance.jpg" alt=""></p>
+
+</section>
+<section class='' data-state='' id='slide-10'>
+  <h2>Useful Identities</h2>
+  <p>\(a\) is a constant, \(x\) and \(y\) are random variables</p>
+
+<ul>
+<li>\(\sigma(x,x)=\sigma^2(x)\)</li>
+<li>\(\sigma(a,x)=0\)</li>
+<li>\(\sigma(ax,y)=a \, \sigma(x,y)\)</li>
+<li>\(\sigma(ax,by)=ab \, \sigma(x,y)\)</li>
+<li>\(\sigma^2(ax)=a^2\sigma^2(x)\)</li>
+<li>\(\sigma[(x+y),(w+z)]=\sigma(x,w)+\sigma(x,z)+\sigma(y,w)+\sigma(y,z)\)</li>
+<li>Very important:
+\[\sigma^2(x+y)=\sigma^2(x)+\sigma^2(y)+2\sigma(x,y)\]</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-11'>
+  <h1>Regression</h1>
+  <ul>
+<li>Linear models: a very good approximation for initial studies</li>
+<li>For associations:
+\[y = \alpha + \beta x + e\]</li>
+<li>\(y\) predicted by the model:
+\[\hat{y} = \alpha + \beta x\]</li>
+<li>\(x\) is the predictor (or independent variable)</li>
+<li>\(y\) is the response (dependent variable)</li>
+<li>\(\alpha\) and \(\beta\) are estimated to give the best fit to the joint
+distribution of \(x\) and \(y\)</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-12'>
+  <h3>Least Squares</h3>
+  <ul>
+<li>Criteria: minimize \(\bar{e^2}\)</li>
+<li>Recall that \(e\) are deviations, so \(E(e^2)\) are the residual variance</li>
+<li>\(e=y-\hat{y}=y-a-bx\)</li>
+<li>After some derivations:
+\[a= \bar{y} - b\bar{x}\]
+\[b=\frac{Cov(x,y)}{Var(x)}\]</li>
+<li>This shows the relation between covariance (dependence) and the
+slope of the linear regression</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-13'>
+  <h3>Properties</h3>
+  <ul>
+<li>\(E[e]=0\)</li>
+<li>The amount of the variance of \(y\) explained by the regression is
+maximum</li>
+<li>\(Cov(x, e)=0\)</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-14'>
+  <h1>Correlation</h1>
+  <ul>
+<li>A dimensionless measure of association
+\[r(x,y)=\frac{Cov(x,y)}{\sqrt{Var(x)\,Var(y)}}\]</li>
+<li>Therefore,
+\[b(y,x)=r\sqrt{\frac{Var(y)}{Var(x)}}\]</li>
+<li>\(r^2\): coefficient of determination (proportion of variance of \(y\)
+explained by the regression)
+
+<ul>
+<li>Regression variance:
+\[r^2 Var(y)\]</li>
+<li>Residual variance
+\[(1-r^2) Var(y)\]</li>
+</ul></li>
+</ul>
+
+</section>
+<section class='' data-state='blue' id='slide-15'>
+  <h1>Example</h1>
+  <h3>Correlation between genotypic and phenotypic values</h3>
+
+<p>\[z = G + E\]</p>
+
+<p>\(\sigma(z,G)=\sigma[(G + E),G]=\sigma(G,G)+\sigma(E,G)=\sigma^2_G + \sigma_{G,E}\)</p>
+
+<p>\(\rho(G,z)=\frac{\sigma_{G,z}}{\sigma_G \sigma_z}=\frac{\sigma^2_G +
+\sigma_{G,E}}{\sigma_G \sigma_z}\)</p>
+
+<ul>
+<li>If \(\sigma_{G,E}=0\):</li>
+</ul>
+
+<p>\[H^2=\rho^2(G,z)=\frac{\sigma^2_G}{\sigma^2_z}\]</p>
+
+<p>know as the <strong>heritability in the broad sense</strong> (proportion of the
+total phenotypic variance that is explained by genetic factors)</p>
+
+</section>
+<section class='' data-state='indigo' id='slide-16'>
+  <h1>Homework</h1>
+  <ul>
+<li>Read Chapter 2 and 3 of Lynch and Walsh Book</li>
+</ul>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="./frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="./frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'night', 
+    transition: Reveal.getQueryHash().transition || 'linear', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: './frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: './frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: './frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: './frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="./widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="./highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
