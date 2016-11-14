@@ -1,6 +1,6 @@
 ---
 title: Quantitative Genetics
-subtitle: A Review of Statistics
+subtitle: Decomposition of Genotypic Value
 author: Antonio Augusto F Garcia
 mode : selfcontained
 framework: revealjs
@@ -17,7 +17,7 @@ bootstrap:
 
 # Quantitative Genetics
 
-## A Review of Statistics
+## Decomposition of The Genetic Variance
 
 <small>
 Instructor: [A Augusto F Garcia](http://about.me/augusto.garcia)
@@ -36,189 +36,109 @@ Some notes on the first slide
 
 # Content
 
-### Expectation
-### Variance
-### Covariance
-### Regression
-### Correlation
-
----
-
-### Probability distribution
-
-- We will denote $z$ for a random variable (quantitative trait,
-  phenotype)
-
-- $p(z)$ (probability density function) 
-
-
-$\int_{-\infty}^{+\infty} p(z) dz = 1$
-
-$P(z_1\leq z \leq z_2)=\int_{z_1}^{z_2}p(z) dz$
-
----
-
-### Normal distribution
-
-$$f(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{\frac{-(x-\mu)^2}{2\sigma^{2}}}$$
-
-```{r,echo=F}
-x <- seq(-3,3,length=1000)
-P <- dnorm(x,mean=0,sd=1)
-df <- data.frame(as.numeric(x), as.numeric(P))
-g <- ggplot(df, aes(x, P)) + geom_line()
-g
-```
-
----
-
-# Expectation
-
-- First moment about the origin, **expected value**, expectation, mean
-
-$$E(z)=\mu=\int_{-\infty}^{+\infty} z \, p(z) \, dz$$
-
-- Properties
-
-  - $E(x+y)=E(x)+E(y)$
-  - $E(cx)=c E(x)$
-
----
-
-# Variance
-
-- Second moment about the mean
-
-$$\sigma^2=\int_{-\infty}^{+\infty} (z-\mu)² \, p(z) \, dz=E[(z-\mu)^2]$$
-
-$$\sigma² = E(z^2)-[E(z)]^2$$
-
-If $z$ are deviations around the mean (e. g. after scaling)
-
-$\sigma^2=E(z^2)$
-
----
-
-
-## Joint Distribution
-
-
-$$P(y_1 \leq y \leq y_2, \, x_1 \leq x \leq x_2) =
-\int_{y_1}^{y_2}\int_{x_1}^{x_2} p(x,y) \, dx\, dy$$
-
-
-- Conditional probabilities
-$$P(y_1 \leq y \leq y_2 | x) = \int_{y_1}^{y_2} p(y|x) \, dy$$
-
-- Remember that
-$$p(x,y)=p(y|x) \, p(x)$$
-
-- Expectation
-$$E[f(x,y)]=\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty}
-f(x,y)\,p(x,y)\,dx \, dy$$
-
----
-
-# Covariance
-
-$$\sigma(x,y)=E[(x-\mu_x)(y-\mu_y)]$$
-
-$$\sigma(x,y)=E(xy)-\mu_x \mu_y=E(xy)-E(x)\,E(y)$$
+### Influence of a locus on the phenotype
+### Fisher's decomposition of the genotypic value
+### Partitioning the genetic variance
+### Additive effects, average excesses, breeding values
+### Extensions for multiple alleles
 
 
 ---
 
-### Covariance
-
-- Measure of **linear association** between $x$ and $y$
-
-![](./images/covariance.jpg)
-
----
-
-## Useful Identities
-
-$a$ is a constant, $x$ and $y$ are random variables
-
-- $\sigma(x,x)=\sigma^2(x)$
-- $\sigma(a,x)=0$
-- $\sigma(ax,y)=a \, \sigma(x,y)$
-- $\sigma(ax,by)=ab \, \sigma(x,y)$
-- $\sigma^2(ax)=a^2\sigma^2(x)$
-- $\sigma[(x+y),(w+z)]=\sigma(x,w)+\sigma(x,z)+\sigma(y,w)+\sigma(y,z)$
-- Very important:
-$$\sigma^2(x+y)=\sigma^2(x)+\sigma^2(y)+2\sigma(x,y)$$
-
----
-
-# Regression
-
-- Linear models: a very good approximation for initial studies
-- For associations:
-$$y = \alpha + \beta x + e$$
-- $y$ predicted by the model:
-$$\hat{y} = \alpha + \beta x$$
-- $x$ is the predictor (or independent variable)
-- $y$ is the response (dependent variable)
-- $\alpha$ and $\beta$ are estimated to give the best fit to the joint
-  distribution of $x$ and $y$
-
----
-
-### Least Squares
-
-- Criteria: minimize $\bar{e^2}$
-- Recall that $e$ are deviations, so $E(e^2)$ are the residual variance
-- $e=y-\hat{y}=y-a-bx$
-- After some derivations:
-  $$a= \bar{y} - b\bar{x}$$
-  $$b=\frac{Cov(x,y)}{Var(x)}$$
-- This shows the relation between covariance (dependence) and the
-  slope of the linear regression
-
----
-
-### Properties
-
-- $E[e]=0$
-- The amount of the variance of $y$ explained by the regression is
-  maximum
-- $Cov(x, e)=0$
-
----
-
-# Correlation
-
-- A dimensionless measure of association
-  $$r(x,y)=\frac{Cov(x,y)}{\sqrt{Var(x)\,Var(y)}}$$
-- Therefore,
-  $$b(y,x)=r\sqrt{\frac{Var(y)}{Var(x)}}$$
-- $r^2$: coefficient of determination (proportion of variance of $y$
-  explained by the regression)
-  - Regression variance:
-  $$r^2 Var(y)$$
-  - Residual variance
-  $$(1-r^2) Var(y)$$
-
----  ds:blue
-
-# Example
-
-### Correlation between genotypic and phenotypic values
+### Influence of a locus on the phenotype
 
 $$z = G + E$$
 
-$\sigma(z,G)=\sigma[(G + E),G]=\sigma(G,G)+\sigma(E,G)=\sigma^2_G + \sigma_{G,E}$
+- $G$ is for the whole genotype (which is very complicated)
+- Let us start with a single gene
+![](./images/Figure4-4.jpg)
+- $k$ is the dominance
+  - $k=0$ (no dominance), $k=1$ (full dominance), $k\geq 1$
+  (overdominance)
 
-$\rho(G,z)=\frac{\sigma_{G,z}}{\sigma_G \sigma_z}=\frac{\sigma^2_G +
-\sigma_{G,E}}{\sigma_G \sigma_z}$
+---
 
-- If $\sigma_{G,E}=0$:
+# Fisher's decomposition (1918)
 
-$$H^2=\rho^2(G,z)=\frac{\sigma^2_G}{\sigma^2_z}$$
+- Number of copies of a particular allele: **gene content**
+- Relation between gene content and genotypic value (normally,
+  non-linear)
+- Partitioning genotypic values into their "expected" values based on
+  additivity ($\hat{G}$) and deviations from those expectations
+- Deviations: dominance ($\delta$)
 
-know as the **heritability in the broad sense** (proportion of the
-total phenotypic variance that is explained by genetic factors)
+
+---
+
+### Regression model
+
+
+$$G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N2+\delta_{ij}$$
+
+- This is a multiple regression model
+- However, there is a constraint: $N_1=2-N_2$
+  $$G_{ij}=\mu_{G}+\alpha_1(2-N_2)+\alpha_2N_2+\delta_{ij}$$
+  $$G_{ij}=\iota + (\alpha_2-\alpha_1)N_2 + \delta_{ij}$$
+- Where $\iota=\mu_G+2\alpha_1$
+- The slope of this regression can be denoted as $\alpha=\alpha_2-\alpha_1$
+- The (regression )model is therefore
+  $$G_{ij}=\iota+\alpha N_2 + \delta_{ij}$$
+
+---
+
+### Graphical interpretation
+
+![](./images/Figure4-6.jpg)
+
+
+---
+
+- Notice that
+  $$\hat{G}_{ij}=\mu_{G}+\alpha_{i}+\alpha_{j} = \left\{
+  \begin{array}{lr} \mu_G+2\alpha_1 & for\; G_{11}\\
+  \mu_G+\alpha_1+\alpha_2 & for\; G_{21}\\
+  \mu_G+2\alpha_2 & for\; G_{22}\end{array}\right.$$
+- By taking the expectation of
+  $G_{ij}=\mu_G+\alpha_1N_1+\alpha_2N2+\delta_{ij}$, it can be shown
+  that
+  $$\alpha_2=p_1\alpha$$
+  $$\alpha_1=-p_2\alpha$$
+- $p_1$ ($p_2$) is the frequency of allele $B_1$ ($B_2$)
+
+
+---
+
+- The slope of the regression (graphical representation) is
+  $$\alpha=\frac{\sigma(G,N_2)}{\sigma^2(N_2)}$$
+- To obtain $\alpha$, one needs to make a number of intermediate
+  calculations
+  - $E(N_2)$ and $E(N_2^2)$ for $\sigma^2(N_2)$
+  - $E(GN)$, $E(G)$ and $E(N_2)$ for $\sigma(G,N_2)$
+  - Expectations require "values" and "frequencies"
+- Finally:
+
+    $$\alpha=a[1+k(p_1-p_2)]$$
+    
+
+---
+
+- Average effect of allelic substitution (under random mating)
+  $$\alpha=a[1+k(p_1-p_2)]$$
+- It represents the average change in genotypic value that results
+  when a $B_1$ allele is randomly substituted for a $B_1$ allele
+  - If $k=0$, $\alpha=a$
+  - If $p_1=p_2$ (for example, in an $F_2$ population), $\alpha=a$
+  - With dominance, the effect of an allelic substitution depends on
+    the status of the unsubstituted allele
+  - The effect of an allele can only be defined in the context of a
+    population
+
+
+---
+
+
+![](./images/Figure4-7.jpg)
+
 
 --- ds:indigo
 
