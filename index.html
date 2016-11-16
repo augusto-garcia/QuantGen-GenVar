@@ -46,7 +46,7 @@ University of São Paulo (Brazil)</small></p>
 
 <h3>Partitioning the genetic variance</h3>
 
-<h3>Additive effects, average excesses, breeding values</h3>
+<h3>Additive effects and breeding values</h3>
 
 <h3>Extensions for multiple alleles</h3>
 
@@ -82,7 +82,7 @@ additivity (\(\hat{G}\)) and deviations from those expectations</li>
 </section>
 <section class='' data-state='' id='slide-5'>
   <h3>Regression model</h3>
-  <p>\[G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N2+\delta_{ij}\]</p>
+  <p>\[G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}\]</p>
 
 <ul>
 <li>This is a multiple regression model</li>
@@ -200,10 +200,173 @@ population</li>
   <p><img src="./images/Figure4-7.jpg" alt=""></p>
 
 </section>
-<section class='' data-state='indigo' id='slide-12'>
+<section class='' data-state='' id='slide-12'>
+  <h1>Partitioning the genetic variance</h1>
+  <ul>
+<li>Given that \(G = \hat{G} + \delta\), the total genetic variance is
+\[\sigma_G^2=\sigma^2(\hat{G}+\delta)=\sigma^2(\hat{G})+2\sigma(\hat{G},\delta)+\sigma^2(\delta)\]</li>
+<li>Recall from regression properties that the predictor and the
+residual are uncorrelated (in this case, \(\hat{G}\) and \(\delta\))</li>
+<li>So, we can denote these components as
+\[\sigma^2_G=\sigma^2_A+\sigma^2_D\]
+
+<ul>
+<li>\(\sigma^2_A\) is the amount of variation explained by the
+regression on \(N_2\) (<strong>additive genetic variance</strong>)</li>
+<li>\(\sigma^2_D\) is the residual variance for the regression
+(<strong>dominance genetic variance</strong>)</li>
+</ul></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-13'>
+  <h2>Genetic variance</h2>
+  <ul>
+<li><p>Using \(E(\hat{G}^2)\), \(E(\hat{G})\), \(E(\delta)\), \(E(\delta^2)\), we
+can obtain:</p>
+
+<p>\[\sigma^2_A=E(\hat{G}^2)-[E(\hat{G})]^2=2p_1p_2\alpha^2\]</p>
+
+<p>\[\sigma^2_D=E(\delta^2)-[E(\delta)]^2=(2p_1p_2ak)^2\]</p></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-14'>
+  
+  <ul>
+<li>solid line is \(\sigma^2_G\), dashed line is \(\sigma^2_A\), dotted line
+is \(\sigma^2_D\)</li>
+<li>\(\sigma^2_A/\sigma^2_D\) <strong>does not</strong> provide information about
+additivity of gene action!</li>
+</ul>
+
+<p><img src="./images/Figure4-8.jpg" alt=""></p>
+
+</section>
+<section class='' data-state='' id='slide-15'>
+  <h1>Additive effects and breeding values</h1>
+  <ul>
+<li>In randomly mating diploids, each parent donates only <strong>one allele
+per locus</strong> to its offspring</li>
+<li>Additive effects are for each allele</li>
+<li>Dominance deviations are functions of the interaction between the
+two parental alleles</li>
+<li>So, dominance is eliminated when gametes are produced</li>
+</ul>
+
+<blockquote>
+<p>\(\hat{G}\) and \(\delta\) are the heritable and non-heritable
+components of an individual&#39;s genotypic value</p>
+</blockquote>
+
+</section>
+<section class='' data-state='' id='slide-16'>
+  <h3>Additive effects</h3>
+  <ul>
+<li>The <em>additive effects</em> \(\alpha_i\) are defined to be the
+least-squares regression coefficients of genotypic values on gene
+content:
+\[\alpha_2=p_1\alpha=p_1a[1+k(p_1-p_2)]\]
+\[\alpha_1=-p_2\alpha=-p_2a[1+k(p_1-p_2)]\]</li>
+<li>They are equivalent to what is defined as <em>average excesses</em> in
+random mating populations (&quot;the difference between the mean
+genotypic value of individuals carrying at least one copy of a given
+allele and the mean genotypic value of the entire population&quot;)</li>
+</ul>
+
+</section>
+<section class='' data-state='blue' id='slide-17'>
+  <h3>Breeding value</h3>
+  <blockquote>
+<p>An individual&#39;s <strong>breeding value</strong> (\(A\)) is the sum of the additive
+effects of its genes</p>
+</blockquote>
+
+<ul>
+<li>The breeding value of \(B_1B_1\) is \(2\alpha_1\)</li>
+<li>The breeding value of \(B_1B_2\) is \(\alpha_1+\alpha_2\)</li>
+<li>The breeding value of \(B_2B_2\) is \(2\alpha_2\)</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-18'>
+  <h4>Breeding value</h4>
+  <ul>
+<li>If one crosses individuals with a given breeding value with a random
+sample of the entire population, it is possible to estimate the
+average genotypic value of offspring. By subtracting the mean, we
+have a very useful result.</li>
+<li>Deviations are <em>half</em> of the breeding value </li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Parental genotype</th>
+<th>Breeding value</th>
+<th>Mean genotypic value of progeny</th>
+<th>Deviation of expected progeny mean from \(\mu_G\)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(B_2B_2\)</td>
+<td>\(2\alpha_2\)</td>
+<td>\(p_2(2a)+p_1a(1+k)\)</td>
+<td>\(\alpha_2\)</td>
+</tr>
+<tr>
+<td>\(B_1B_2\)</td>
+<td>\(\alpha_1+\alpha_2\)</td>
+<td>\(a[p_2+(1+k)/2]\)</td>
+<td>\((\alpha_1+\alpha_2)/2\)</td>
+</tr>
+<tr>
+<td>\(B_1B_1\)</td>
+<td>\(2\alpha_1\)</td>
+<td>\(ap_2(1+k)\)</td>
+<td>\(\alpha_1\)</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>We can estimate the breeding value by crossing to random
+individuals, taking the average of progeny, subtracting it from the
+overall mean, and then multiplying by 2</p>
+</blockquote>
+
+</section>
+<section class='' data-state='' id='slide-19'>
+  <h2>A very useful interpretation</h2>
+  <ul>
+<li>Remember that \(G_{ij}=\mu_G+\alpha_i+\alpha_j+\delta_{ij}\)</li>
+<li>(This is the same as using the model
+\(G_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}\))</li>
+<li>\(G_{ij}=\mu_G+A_{ij}+\delta_{ij}\) (indicating the breeding value)</li>
+<li>Then
+\[\sigma^2_G=\sigma^2(\alpha_i+\alpha_j)+\sigma^2(\delta_{ij})\]</li>
+<li>But
+\[\sigma^2_G=\sigma^2_A+\sigma^2_D\]</li>
+</ul>
+
+<blockquote>
+<p>The genetic variance is equivalent to the variance of breeding
+values of individuals in the population</p>
+</blockquote>
+
+</section>
+<section class='' data-state='' id='slide-20'>
+  <h1>Extension for multiple alleles</h1>
+  <ul>
+<li>Generalizations:
+\[G=\mu_G+\sum_{i=1}^n \alpha_iN_i+\delta\]
+\[\alpha_i=\sum_{j=1}^n p_jG_{ij}-\mu_G\]
+\[\sigma^2_A=2\sum_{i=1}^n p_i\alpha^2_i\]</li>
+</ul>
+
+</section>
+<section class='' data-state='indigo' id='slide-21'>
   <h1>Homework</h1>
   <ul>
-<li>Read Chapter 2 and 3 of Lynch and Walsh Book</li>
+<li>Read Chapter 4 of Lynch and Walsh Book</li>
 </ul>
 
 </section>
