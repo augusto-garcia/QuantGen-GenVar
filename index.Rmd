@@ -136,8 +136,19 @@ $$G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N2+\delta_{ij}$$
 
 ---
 
+| Genotype | Genotypic Value ($G$) | Gene content ($N_2$) | Freq. | $\hat{G}$ | $\delta=G-\hat{G}$ |
+|:--------:|:---------------------:|:--------------------:|:---------:|:---------:|:------------------:|
+| $B_1B_1$ | $0$        | $0$ | $p_1^2$   | $\iota$        | $-\iota$ |
+| $B_1B_2$ | $(1+k)a$   | $1$ | $2p_1p_2$ | $\iota+\alpha$ | $(1+k)a-\iota-\alpha$ |
+| $B_2B_2$ | $2a$       | $2$ | $p_2^2$   | $\iota+2\alpha$| $2a-\iota-2\alpha$ |
+
+
+---
+
 
 ![](./images/Figure4-7.jpg)
+
+
 
 
 
