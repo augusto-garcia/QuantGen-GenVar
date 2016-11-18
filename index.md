@@ -169,7 +169,7 @@ $$\sigma^2_G=\sigma^2_A+\sigma^2_D$$
 
 ## Genetic variance
 
-- Using $E(\hat{G}^2)$, $E(\hat{G})$, $E(\delta)$, $E(\delta^2)$, we
+- Using $E(\hat{G}^2)$, $E(\hat{G})$, $E(\delta^2)$, $E(\delta)$, we
   can obtain:
 
   $$\sigma^2_A=E(\hat{G}^2)-[E(\hat{G})]^2=2p_1p_2\alpha^2$$
@@ -253,8 +253,8 @@ $$\sigma^2_G=\sigma^2_A+\sigma^2_D$$
 ## A very useful interpretation
 
 - Remember that $G_{ij}=\mu_G+\alpha_i+\alpha_j+\delta_{ij}$
-- (This is the same as using the model
-  $G_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$)
+- This is the same as using the model
+  $G_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$
 - $G_{ij}=\mu_G+A_{ij}+\delta_{ij}$ (indicating the breeding value)
 - Then
   $$\sigma^2_G=\sigma^2(\alpha_i+\alpha_j)+\sigma^2(\delta_{ij})$$
