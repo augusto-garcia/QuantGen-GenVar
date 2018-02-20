@@ -81,7 +81,7 @@ $$G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$$
   $$G_{ij}=\iota + (\alpha_2-\alpha_1)N_2 + \delta_{ij}$$
 - Where $\iota=\mu_G+2\alpha_1$
 - The slope of this regression can be denoted as $\alpha=\alpha_2-\alpha_1$
-- The (regression )model is therefore
+- The (regression) model is therefore
   $$G_{ij}=\iota+\alpha N_2 + \delta_{ij}$$
 
 ---
@@ -99,7 +99,7 @@ $$G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$$
   \mu_G+\alpha_1+\alpha_2 & for\; G_{21}\\
   \mu_G+2\alpha_2 & for\; G_{22}\end{array}\right.$$
 - By taking the expectation of
-  $G_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$, it can be shown
+  $G_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$ it can be shown
   that
   $$\alpha_2=p_1\alpha$$
   $$\alpha_1=-p_2\alpha$$
@@ -122,7 +122,7 @@ $$G_{ij}=\hat{G}_{ij}+\delta_{ij}=\mu_G+\alpha_1N_1+\alpha_2N_2+\delta_{ij}$$
 
 ---
 
-- Average effect of allelic substitution (under random mating)
+- _**Average effect of allelic substitution**_ (under random mating)
   $$\alpha=a[1+k(p_1-p_2)]$$
 - It represents the average change in genotypic value that results
   when a $B_1$ allele is randomly substituted for a $B_2$ allele
