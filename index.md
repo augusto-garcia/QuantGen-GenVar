@@ -261,7 +261,7 @@ $$\sigma^2_G=\sigma^2_A+\sigma^2_D$$
 - But
   $$\sigma^2_G=\sigma^2_A+\sigma^2_D$$
 
-> The genetic variance is equivalent to the variance of breeding
+> The additive variance is equivalent to the variance of breeding
 > values of individuals in the population
 
 ---
